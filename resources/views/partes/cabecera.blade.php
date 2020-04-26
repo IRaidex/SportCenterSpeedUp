@@ -31,7 +31,7 @@
             <a class="nav-link color" href="{{url('categoria/Accesorios')}}">Servicios</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link color" href="{{url('formAgregarProducto')}}">Galeria</a>
+            <a class="nav-link color" href="{{url('padel')}}">Pistas</a>
         </li>
         <li class="nav-item">
             <a class="nav-link color" href="{{url('mostrar')}}">Torneos</a>
@@ -40,9 +40,19 @@
             <a class="nav-link color" href="{{url('mostrar')}}">Contacto</a>
         </li>
     </ul>
+    <div class="btn-group dropleft">
+        <img class="svg mx-3 dropdown-toggle" data-toggle="dropdown" data-flip="false" aria-haspopup="true" aria-expanded="false" src="{{asset('img/perfil.svg')}}" alt="perfil">
+        <a href="" ><img class="svg mx-3" src="{{asset('img/login.svg')}}" alt="login"></a>  
+        <a href="" ><img class="svg mx-3" src="{{asset('img/logout.svg')}}" alt="logout"></a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </div>
     <div class="form-inline">
-         <a href="" ><img class="svg mx-3" src="{{asset('img/login.svg')}}" alt="login"></a>  
-         <a href="" ><img class="svg mx-3" src="{{asset('img/logout.svg')}}" alt="logout"></a>
-         <a href="" ><img class="svg mx-3" src="{{asset('img/perfil.svg')}}" alt="perfil"></a>
+
     </div>
 </nav>

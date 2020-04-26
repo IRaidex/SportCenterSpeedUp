@@ -1,3 +1,5 @@
+/*Layaout*/
+
 body{
     font-family: "Poppins", sans-serif;
     margin: 0;
@@ -90,3 +92,18 @@ nav{
     width: 70px;
     height: 40px;
 }
+
+/*Pistas*/
+
+.dia{
+    background-color:  #292A3A;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+
+}
+
+.dia:hover{
+    color: #E1523D;
+}
+

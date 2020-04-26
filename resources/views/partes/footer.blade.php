@@ -1,5 +1,5 @@
 <footer class="container-fluid text-center">
-    <div class="row mt-5 blanco">
+    <div class="row blanco">
         <div class="col-lg-4 col-12">
             <h6 class="text-uppercase font-weight-bold mt-4">Información</h6>
             <hr class="mb-4 mt-0 d-inline-block w-50">
@@ -8,11 +8,11 @@
             <p class="foot">Trabaja con Nosotros</p>
         </div>
         <div class="col-lg-4 col-12">
-            <h6 class="text-uppercase font-weight-bold mt-4">Productos</h6>
+            <h6 class="text-uppercase font-weight-bold mt-4">Servicios</h6>
             <hr class="mb-4 mt-0 d-inline-block w-50">
-            <p class="foot">Ropa</p>
-            <p class="foot">Materiales</p>
-            <p class="foot">Maquinas</p>
+            <p class="foot">Gimnasio</p>
+            <p class="foot">Aerobicos</p>
+            <p class="foot">Pistas</p>
         </div>
         <div class="col-lg-4 col-12">
             <h6 class="text-uppercase font-weight-bold mt-4">Contacta con nosotros!</h6>
@@ -24,7 +24,7 @@
     </div>
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">
-            <div class="col-lg-3 col-12 text-center mt-3">
+            <div class="col-lg-3 col-12 text-center">
                 <h5 class="text-white">Siguenos en nuestras redes Sociales!</h5>
             </div>
             <div class="col-lg-3 col-12 text-center">

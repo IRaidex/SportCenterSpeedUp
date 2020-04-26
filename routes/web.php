@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layaouts/master');
+Route::get('/', function(){
+    return view('index');
+});
+
+Route::get('/padel', function(){
+    return view('pistas');
 });
