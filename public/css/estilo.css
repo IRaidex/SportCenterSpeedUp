@@ -107,3 +107,25 @@ nav{
     color: #E1523D;
 }
 
+/*Admin Perfiles*/
+
+td img{
+    width: 25px;
+    height: 25px;
+}
+
+tbody tr:hover{
+    background-color: rgb(225,82,61,0.5);
+}
+
+thead{
+    background-color: rgb(52,58,64);
+}
+
+th{
+    color: white;
+}
+
+thead th:hover{
+    color: #E1523D;
+}

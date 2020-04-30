@@ -20,3 +20,13 @@ Route::get('/', function(){
 Route::get('/padel', function(){
     return view('pistas');
 });
+
+Route::get('/torneo', function(){
+    return view('torneos');
+});
+
+
+Route::get('/usuarios', function(){
+    return view('adminPerfil');
+});
+

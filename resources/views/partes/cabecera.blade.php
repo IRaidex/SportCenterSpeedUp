@@ -34,10 +34,10 @@
             <a class="nav-link color" href="{{url('padel')}}">Pistas</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link color" href="{{url('mostrar')}}">Torneos</a>
+            <a class="nav-link color" href="{{url('torneo')}}">Torneos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link color" href="{{url('mostrar')}}">Contacto</a>
+            <a class="nav-link color" href="{{url('usuarios')}}">Ver Perfiles</a>
         </li>
     </ul>
     <div class="btn-group dropleft">
