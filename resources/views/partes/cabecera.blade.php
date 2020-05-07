@@ -25,10 +25,10 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link color" href="{{url('categoria/Materiales')}}">Sobre Nosotros</a>
+            <a class="nav-link color" href="{{url('articulos')}}">Articulos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link color" href="{{url('categoria/Accesorios')}}">Servicios</a>
+            <a class="nav-link color" href="{{url('newArticle')}}">Crear Articulo</a>
         </li>
         <li class="nav-item">
             <a class="nav-link color" href="{{url('padel')}}">Pistas</a>

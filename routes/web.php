@@ -25,8 +25,25 @@ Route::get('/torneo', function(){
     return view('torneos');
 });
 
-
-Route::get('/usuarios', function(){
-    return view('adminPerfil');
+Route::get('/crearTorneo', function(){
+    return view('crearTorneo');
 });
+
+Route::get('/newArticle', function(){
+    return view('newArticle');
+});
+
+Route::post('/prueba','ArticleController@store');
+Route::get('/otraruta','ArticleController@index');
+
+
+Route::get('/usuarios','UserController@index');
+Route::get('/articulos','ArticleController@index');
+
+Route::get('/createTournament','TournamentController@create');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 

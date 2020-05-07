@@ -17,9 +17,8 @@ class CreateArticleTable extends Migration
             $table->bigIncrements('idArticle');    
             $table->string('content',100);
             $table->Date('date');
-            $table->string('name',100);
+            $table->string('title',100);
             $table->bigInteger('userId')->unsigned();
-            $table->bigInteger('comentId')->unsigned();
             $table->timestamps();
         });
     }

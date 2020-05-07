@@ -129,3 +129,25 @@ th{
 thead th:hover{
     color: #E1523D;
 }
+
+/*Articulos*/
+
+.imgArticle{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.borde{
+    background-color: #292A3A;
+    border-radius: 30px;
+    color: white;
+}
+
+h3{
+    color: #E1523D;
+}
+
+.texto{
+    word-wrap: break-word;
+}

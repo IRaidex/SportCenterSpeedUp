@@ -10,6 +10,7 @@
         <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{{asset('css/estilo.css')}}" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+        <script src="{{asset('js/crearTorneo.js')}}"></script>
       <!--  @yield('css')
         @yield('js')-->
     </head>
