@@ -1,0 +1,14 @@
+.imgPerfil{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+h3{
+    color: #E1523D;
+}
+
+.coment{
+    background-color: #292A3A;
+     border-radius: 25px;
+}

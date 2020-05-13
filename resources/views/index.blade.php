@@ -1,4 +1,10 @@
 @extends('layouts.master')
+@section('titulo')
+<title>Speed Up • Index</title>
+@stop
+@section('css')
+<link rel="stylesheet" href="{{asset('css/estilo.css')}}" type="text/css">
+@stop
 @section('content')
                                 <!--CAROUSEL-->
 <div id="carouselImagenes" class="carousel slide" data-ride="carousel">

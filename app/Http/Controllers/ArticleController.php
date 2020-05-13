@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\User;
+use App\Coment;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -47,14 +48,31 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $ultimo = Article::all();
+        //        
+        if(count($ultimo) == 0){
+            $ultimo = 1;
+        }else{
+            $ultimo = $ultimo->last()->idArticle+1;
+        }
+
+
+
         $article = new Article;
         $article->title = $request->title;
         $article->content = $request->content;
-        $article->date = '1996/02/13';
+        $article->tag1 = $request->tag1;
+        $article->tag2 = $request->tag2;
+        $article->tag3 = $request->tag3;
         $article->userId = Auth::user()->idUser;
+
+        $imagen = $request->file('imgArticulo');
+        $imagen->move('articulos','articulo'.$ultimo.'.'.$imagen->getClientOriginalExtension());
+        $article->picture = 'articulo'.$ultimo.'.'.$imagen->getClientOriginalExtension();
         $article->save();
 
-        return redirect('/otraruta');
+
+        return redirect('/articulos/all');
     }
 
     /**
@@ -65,7 +83,33 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $articulo = Article::select()
+            ->where('idArticle',$id)
+            ->get();
+
+        $user = User::select()
+            ->where('idUser',$articulo[0]->userId)
+            ->get();
+
+        $articulo->datosUser = $user;
+
+        $coments = Coment::select()
+            ->where('articleId',$id)
+            ->get();
+
+        for($i = 0 ; $i<count($coments) ; $i++){
+            $users = User::find($coments[$i]->userId);
+            $coments[$i]->users = $users;
+
+        }   
+
+        return view('articulo')
+            ->with('articulo',$articulo)
+            ->with('user',$user)
+            ->with('coments',$coments);
+
+
     }
 
     /**

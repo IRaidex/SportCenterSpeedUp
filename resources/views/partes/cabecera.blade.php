@@ -25,13 +25,13 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link color" href="{{url('articulos')}}">Articulos</a>
+            <a class="nav-link color" href="{{url('articulos/all')}}">Articulos</a>
         </li>
         <li class="nav-item">
             <a class="nav-link color" href="{{url('newArticle')}}">Crear Articulo</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link color" href="{{url('padel')}}">Pistas</a>
+            <a class="nav-link color" href="{{url('pistas')}}">Pistas</a>
         </li>
         <li class="nav-item">
             <a class="nav-link color" href="{{url('torneo')}}">Torneos</a>
@@ -42,17 +42,61 @@
     </ul>
     <div class="btn-group dropleft">
         <img class="svg mx-3 dropdown-toggle" data-toggle="dropdown" data-flip="false" aria-haspopup="true" aria-expanded="false" src="{{asset('img/perfil.svg')}}" alt="perfil">
-        <a href="" ><img class="svg mx-3" src="{{asset('img/login.svg')}}" alt="login"></a>  
-        <a href="" ><img class="svg mx-3" src="{{asset('img/logout.svg')}}" alt="logout"></a>
+        @if(!Auth::user())
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <form class="px-4 py-3" method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="form-group">
+                    <label for="email" class="font-weight-bold col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="password" class="font-weight-bold col-form-label text-md-right">{{ __('Contraseña') }}</label>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <label class="form-check-label" for="remember">
+                        {{ __('Recordar Datos') }}
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                    {{ __('Entrar') }}
+                </button>
+            </form>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+            @if (Route::has('password.request'))
+            <a class="btn link" href="{{ route('password.request') }}">
+                {{ __('¿Has olvidado tu contraseña?') }}
+            </a>
+            <a class="btn link" href="{{ route('register') }}">
+                {{ __('¿Eres Nuevo? Registrarte aquí!') }}
+            </a>
+            @endif
         </div>
     </div>
-    <div class="form-inline">
-
+    @else
+    <div class="dropdown-menu mr-5">
+        <a class="dropdown-item link" href="#">Perfil</a>
+        <a class="dropdown-item link" href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+            {{ __('Cerrar Session') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </div>
+    @endif
+
 </nav>

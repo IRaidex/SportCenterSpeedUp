@@ -28,9 +28,9 @@
                 <h5 class="text-white">Siguenos en nuestras redes Sociales!</h5>
             </div>
             <div class="col-lg-3 col-12 text-center">
-                <img class="redesSociales m-1 svg" src="{{asset('img/instagram.png')}}" alt="Instragram">
-                <img class="redesSociales m-1 svg" src="{{asset('img/twitter.png')}}" alt="Twitter">
-                <img class="redesSociales m-1 svg" src="{{asset('img/facebook.png')}}" alt="Facebook">
+                <a href=""><img class="redesSociales m-1 svg" src="{{asset('img/instagram.png')}}" alt="Instragram"></a>
+                <a href=""><img class="redesSociales m-1 svg" src="{{asset('img/twitter.png')}}" alt="Twitter"></a>
+                <a href=""><img class="redesSociales m-1 svg" src="{{asset('img/facebook.png')}}" alt="Facebook"></a>
             </div>
         </div>
         <div class="footer-copyright text-center mt-5 pb-3 text-white">

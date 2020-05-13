@@ -1,4 +1,11 @@
 @extends('layouts.master')
+@section('titulo')
+<title>Speed Up • Pistas</title>
+@stop
+@section('css')
+<link rel="stylesheet" href="{{asset('css/estilo.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('css/pistas.css')}}" type="text/css">
+@stop
 @section('content')
 <div class="container">
     <div class="row justify-content-around my-3">

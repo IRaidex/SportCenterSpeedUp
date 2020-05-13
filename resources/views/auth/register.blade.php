@@ -120,7 +120,7 @@
                 </div>   
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <input id="picture" type="hidden" class="form-control" name="picture" value="default" required autocomplete="picture">
+                        <input id="picture" type="hidden" class="form-control" name="picture" value="default.png" required autocomplete="picture">
                     </div>
                 </div>
                 <div class="form-group row mb-0 text-center mb-5 mt-3">

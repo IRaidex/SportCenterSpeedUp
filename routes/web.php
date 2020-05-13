@@ -17,7 +17,7 @@ Route::get('/', function(){
     return view('index');
 });
 
-Route::get('/padel', function(){
+Route::get('/pistas', function(){
     return view('pistas');
 });
 
@@ -33,17 +33,15 @@ Route::get('/newArticle', function(){
     return view('newArticle');
 });
 
-Route::post('/prueba','ArticleController@store');
-Route::get('/otraruta','ArticleController@index');
 
-
-Route::get('/usuarios','UserController@index');
-Route::get('/articulos','ArticleController@index');
+Route::post('/articles/create','ArticleController@store');
+Route::get('/articulos/all','ArticleController@index');
+Route::get('/articulo/{id}','ArticleController@show');
 
 Route::get('/createTournament','TournamentController@create');
 
 
 Auth::routes();
-
+Route::get('/usuarios','UserController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 

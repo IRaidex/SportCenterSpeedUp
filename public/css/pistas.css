@@ -1,0 +1,11 @@
+.dia{
+    background-color:  #292A3A;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+
+}
+
+.dia:hover{
+    color: #E1523D;
+}

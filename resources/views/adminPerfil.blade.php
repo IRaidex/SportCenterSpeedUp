@@ -1,11 +1,18 @@
 @extends('layouts.master')
+@section('titulo')
+<title>Administrar Perfiles • Speed Up</title>
+@stop
+@section('css')
+<link rel="stylesheet" href="{{asset('css/estilo.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('css/administrarPerfiles.css')}}" type="text/css">
+@stop
+@section('js')
+<script src="{{asset('js/administrarPerfiles.js')}}"></script>
+@stop
 @section('content')
 <div class="container-fluid">
-
-
     <div class="table-responsive m-2">
         <table class="table">
-           
             <thead>
                 <tr>
                     <th scope="col"></th>
@@ -21,7 +28,6 @@
             </thead>
             <tbody>
                @foreach($usuarios as $key => $valor)
-               {{$valor}}
                 <tr>
                     <td><img src="{{asset('img/lupa.svg')}}" alt="lupa"></td>
                     <td>{{$valor->idUser}}</td>
@@ -34,7 +40,6 @@
                     <td><img src="{{asset('img/trash.svg')}}" alt="papelera"></td>
                 </tr> 
                 @endforeach 
-            
             </tbody>
         </table>
     </div>

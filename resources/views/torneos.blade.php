@@ -1,4 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.master')@section('titulo')
+<title>Torneo • Speed Up</title>
+@stop
+@section('css')
+<link rel="stylesheet" href="{{asset('css/estilo.css')}}" type="text/css">
+@stop
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
