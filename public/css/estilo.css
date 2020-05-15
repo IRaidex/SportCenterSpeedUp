@@ -100,3 +100,24 @@ nav{
 .link:hover{
     color: #E1523D;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #292A3A; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #E1523D; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #E1523D; 
+}

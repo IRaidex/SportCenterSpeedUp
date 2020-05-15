@@ -20,7 +20,7 @@
                     <input type="text" name="title" class="form-control" id="title" placeholder="Introduce Titulo">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" id="content" rows="10" name="content"></textarea>
+                    <textarea class="form-control" id="content" rows="10" name="content" placeholder="Escriba Articulo..."></textarea>
                 </div> 
                 <div class="form-row">
                     <div class="col-md-4 form-group">

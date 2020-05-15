@@ -25,7 +25,8 @@ class ArticleController extends Controller
             $articulos[$i]->datosUser = $user;
 
         }   
-
+        
+        
         return view('/articulos')
             ->with('articulos',$articulos);
     }
@@ -55,8 +56,6 @@ class ArticleController extends Controller
         }else{
             $ultimo = $ultimo->last()->idArticle+1;
         }
-
-
 
         $article = new Article;
         $article->title = $request->title;
@@ -96,8 +95,10 @@ class ArticleController extends Controller
 
         $coments = Coment::select()
             ->where('articleId',$id)
+            ->orderBy('date', 'DESC')
             ->get();
-
+        
+        
         for($i = 0 ; $i<count($coments) ; $i++){
             $users = User::find($coments[$i]->userId);
             $coments[$i]->users = $users;

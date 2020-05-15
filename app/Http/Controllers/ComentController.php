@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Coment;
+use Illuminate\Support\Facades\Auth;
 
 class ComentController extends Controller
 {
@@ -13,22 +14,9 @@ class ComentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
 
-        $coments = Coment::select()
-            ->where('articleId',$id)
-            ->get();
-
-
-        for($i = 0 ; $i<count($coments) ; $i++){
-            $user = User::find($coments[$i]->userId);
-            $coments[$i]->user = $user;
-
-        }   
-
-        return view('articulo')
-            ->with('coments',$coments);
 
     }
 
@@ -50,7 +38,14 @@ class ComentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $coment = new Coment;
+        $coment->content = $request->content;
+        $coment->userId = Auth::user()->idUser;
+        $coment->articleId = $request->articleId;
+        $coment->save();
+
+       return redirect('/articulo/'.$request->articleId);
+
     }
 
     /**

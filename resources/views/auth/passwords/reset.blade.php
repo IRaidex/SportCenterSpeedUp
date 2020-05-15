@@ -1,5 +1,11 @@
-@extends('layouts.app')
-
+@extends('layouts.master')
+@section('titulo')
+<title>Contraseña olvidada • Speed Up</title>
+@stop
+@section('css')
+<link rel="stylesheet" href="{{asset('css/estilo.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('css/articulos.css')}}" type="text/css">
+@stop
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

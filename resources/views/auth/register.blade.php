@@ -1,10 +1,18 @@
 @extends('layouts.master')
-
+@section('titulo')
+<title>Registro • Speed Up</title>
+@stop
+@section('css')
+<link rel="stylesheet" href="{{asset('css/estilo.css')}}" type="text/css">
+<link rel="stylesheet" href="{{asset('css/articulos.css')}}" type="text/css">
+@stop
 @section('content')
-<h4 class="text-center my-4">Registro</h4>
+
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
+    <h3 class="mt-4 text-uppercase font-weight-bold text-center">Registro</h3>
+    <hr class="w-75">
+    <div class="row justify-content-center ">
+        <div class="col-md-6 mt-5">
 
             <form method="POST" action="{{ route('register') }}">
                 @csrf

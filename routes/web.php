@@ -38,6 +38,9 @@ Route::post('/articles/create','ArticleController@store');
 Route::get('/articulos/all','ArticleController@index');
 Route::get('/articulo/{id}','ArticleController@show');
 
+Route::post('/coment/create','ComentController@store');
+
+
 Route::get('/createTournament','TournamentController@create');
 
 

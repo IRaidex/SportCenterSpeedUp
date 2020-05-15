@@ -10,7 +10,14 @@ $(function(){
     }
     $(function()
       {
-        ellipsis_box(".limitado", 500);
+        
+        var elemento = $('.limitado');
+        
+        for(var i=0 ; i<elemento.length ; i++){
+             ellipsis_box(elemento[i], 500);
+        }
+        
+       
     });
 
 });
