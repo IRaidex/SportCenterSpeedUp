@@ -43,8 +43,13 @@ class ComentController extends Controller
         $coment->userId = Auth::user()->idUser;
         $coment->articleId = $request->articleId;
         $coment->save();
-
-       return redirect('/articulo/'.$request->articleId);
+        
+        $fecha = Coment::all();
+        $fecha = $fecha->last()->date;
+        
+        $user = json_encode(array('content'=>$request->content,'nombre'=>Auth::user()->name,'apellido1'=>Auth::user()->firts_surname,'apellido2'=>Auth::user()->second_surname,'picture'=>Auth::user()->picture,'date'=> $fecha));
+        
+        return $user;
 
     }
 

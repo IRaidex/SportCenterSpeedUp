@@ -29,19 +29,21 @@ Route::get('/crearTorneo', function(){
     return view('crearTorneo');
 });
 
-Route::get('/newArticle', function(){
+Route::get('/crearArticulo', function(){
     return view('newArticle');
 });
 
+// por que lo llamas artículos, articulo y article si todo es del mismo controller¿?¿
 
-Route::post('/articles/create','ArticleController@store');
+Route::post('/articulo/create','ArticleController@store');
+
 Route::get('/articulos/all','ArticleController@index');
 Route::get('/articulo/{id}','ArticleController@show');
 
-Route::post('/coment/create','ComentController@store');
+Route::post('/articulo/comentario/create','ComentController@store');
 
 
-Route::get('/createTournament','TournamentController@create');
+//Route::get('/createTournament','TournamentController@create');
 
 
 Auth::routes();

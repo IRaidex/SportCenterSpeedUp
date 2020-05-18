@@ -31,41 +31,40 @@
     </div>
 
     @endforeach 
+    <div id="caja">
+        <hr class="w-50">
+        <div class="ml-lg-5 row justify-content-end" id="comentario">
+            <div class="col-lg-1 col-md-2 col-3 mt-3 ">
+                <a href=""><img src="{{asset('img/default.png')}}" alt="imagenArticulo" class="imgPerfil"></a>
+            </div>
+            <div class="col-lg-8 col-md-7 col-8 my-1">
+                <form action="{{ url('/articulo/comentario/create') }}" method="post" id="formComent">
+                    @csrf
+                    <div class="form-group ">
+                        <textarea class="form-control w-75" id="content" name="content" maxlength="200" cols="80" rows="4" placeholder="Escriba su comentario..."></textarea>
+                        <input id="articleId" type="hidden" class="form-control" name="articleId" value="{{$articulo[0]->idArticle}}" required autocomplete="articleId">
+                    </div>
+                    <div class="form-group"><span id="enviar" class="btn text-center disabled">Enviar</span></div>
+                </form>
+            </div>
+        </div>
+        <hr class="w-50 justify-content-end">
 
-    <hr class="w-50">
-    <div class="ml-lg-5 row justify-content-end">
-        <div class="col-lg-1 col-md-2 col-3 mt-3 ">
-            <a href=""><img src="{{asset('img/default.png')}}" alt="imagenArticulo" class="imgPerfil"></a>
+        @foreach($coments as $key => $valor)
+
+        <div class="ml-lg-5 row my-4 justify-content-end">
+            <div class="col-lg-1 col-md-2 col-3 align-self-md-center ">
+                <a href=""><img src="{{asset('img/'.$valor->users->picture)}}" alt="imagenPerfil" class="imgPerfil"></a>
+            </div>
+            <div class="col-lg-8  col-md-7 col-8 align-self-md-center">
+                <span class="text-left font-weight-bold text-sm-left">{{$valor->users->name}} {{$valor->users->firts_surname}} {{$valor->users->second_surname}}</span>
+                <p class="text-left">{{$valor->date}}</p>
+                <p class="mt-2 text-justify limitado">{{ $valor->content }}</p>
+            </div>
         </div>
-        <div class="col-lg-8 col-md-7 col-8 my-1">
-            <form action="{{ url('/coment/create') }}" method="post">
-                @csrf
-                <div class="form-group ">
-                    <textarea class="form-control w-75" id="content" name="content" maxlength="200" cols="80" rows="4" placeholder="Escriba su comentario..." onKeyDown="valida_longitud()" onKeyUp="valida_longitud()"></textarea>
-                    <span id="numero"></span>
-                    <input id="articleId" type="hidden" class="form-control" name="articleId" value="{{$articulo[0]->idArticle}}" required autocomplete="articleId">
-                </div>
-                <div class="form-group"><input type="submit" value="Enviar" name="enviar" class="btn btn-info text-center"></div>
-            </form>
-        </div>
+        <hr class="w-50 justify-content-end">
+
+        @endforeach
     </div>
-    <hr class="w-50">
-    
-    @foreach($coments as $key => $valor)
-
-    <div class="ml-lg-5 row my-4 justify-content-end">
-        <div class="col-lg-1 col-md-2 col-3 align-self-md-center ">
-            <a href=""><img src="{{asset('img/'.$valor->users->picture)}}" alt="imagenArticulo" class="imgPerfil"></a>
-        </div>
-        <div class="col-lg-8  col-md-7 col-8 align-self-md-center">
-            <span class="text-left font-weight-bold text-sm-left">{{$valor->users->name}} {{$valor->users->firts_surname}} {{$valor->users->second_surname}}</span>
-            <p class="text-left">{{$valor->date}}</p>
-            <p class="mt-2">{{ $valor->content }}</p>
-        </div>
-    </div>
-    <hr class="w-50 justify-content-end">
-    
-    @endforeach
-
 </div>
 @stop

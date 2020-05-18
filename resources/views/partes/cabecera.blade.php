@@ -28,7 +28,7 @@
             <a class="nav-link color" href="{{url('articulos/all')}}">Articulos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link color" href="{{url('newArticle')}}">Crear Articulo</a>
+            <a class="nav-link color" href="{{url('crearArticulo')}}">Crear Articulo</a>
         </li>
         <li class="nav-item">
             <a class="nav-link color" href="{{url('pistas')}}">Pistas</a>
