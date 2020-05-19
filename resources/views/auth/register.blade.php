@@ -14,7 +14,7 @@
     <div class="row justify-content-center ">
         <div class="col-md-6 mt-5">
 
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}" id="formRegister">
                 @csrf
 
                 <div class="form-group row">
@@ -27,6 +27,7 @@
                         </span>
                         @enderror
                     </div>
+                    <small id="avisoNombre">El nombre tiene que tener entre 2 y 25</small>
                 </div>
 
                 <div class="form-group row">
@@ -39,6 +40,7 @@
                         </span>
                         @enderror
                     </div>
+                    <small id="avisoApellido1">El primer apellido tiene que tener entre 2 y 25</small>
                 </div>
 
                 <div class="form-group row">
@@ -51,6 +53,7 @@
                         </span>
                         @enderror
                     </div>
+                    <small id="avisoApellido2">El segundo apellido tiene que tener entre 2 y 25</small>
                 </div>
 
                 <div class="form-group row">
@@ -133,7 +136,7 @@
                 </div>
                 <div class="form-group row mb-0 text-center mb-5 mt-3">
                     <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="btn btn btn-warning mr-5">
+                        <button type="submit" class="btn btn btn-warning mr-5" id="registro">
                             {{ __('Registrarse') }}
                         </button>
                         <a class="text-right btn btn-link" href="/">

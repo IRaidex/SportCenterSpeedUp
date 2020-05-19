@@ -33,20 +33,16 @@ Route::get('/crearArticulo', function(){
     return view('newArticle');
 });
 
-// por que lo llamas artículos, articulo y article si todo es del mismo controller¿?¿
 
 Route::post('/articulo/create','ArticleController@store');
 
 Route::get('/articulos/all','ArticleController@index');
 Route::get('/articulo/{id}','ArticleController@show');
-
 Route::post('/articulo/comentario/create','ComentController@store');
 
-
-//Route::get('/createTournament','TournamentController@create');
-
-
 Auth::routes();
+
 Route::get('/usuarios','UserController@index');
+Route::get('/perfil/user','UserController@show');
 Route::get('/home', 'HomeController@index')->name('home');
 

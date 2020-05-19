@@ -48,7 +48,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="email" class="font-weight-bold col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-group">
                     <label for="password" class="font-weight-bold col-form-label text-md-right">{{ __('Contraseña') }}</label>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -87,15 +87,12 @@
     </div>
     @else
     <div class="dropdown-menu mr-5">
-        <a class="dropdown-item link" href="#">Perfil</a>
+        <a class="dropdown-item link" href="{{ url('/perfil/user') }}">Perfil</a>
         <a class="dropdown-item link" href="{{ route('logout') }}"
            onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
             {{ __('Cerrar Session') }}
         </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
     </div>
     @endif
 

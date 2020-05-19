@@ -25,8 +25,8 @@ class ArticleController extends Controller
             $articulos[$i]->datosUser = $user;
 
         }   
-        
-        
+
+
         return view('/articulos')
             ->with('articulos',$articulos);
     }
@@ -68,8 +68,6 @@ class ArticleController extends Controller
         $imagen = $request->file('imgArticulo');
         $imagen->move('articulos','articulo'.$ultimo.'.'.$imagen->getClientOriginalExtension());
         $article->picture = 'articulo'.$ultimo.'.'.$imagen->getClientOriginalExtension();
-        $article->save();
-
 
         return redirect('/articulos/all');
     }
@@ -97,8 +95,8 @@ class ArticleController extends Controller
             ->where('articleId',$id)
             ->orderBy('date', 'DESC')
             ->get();
-        
-        
+
+
         for($i = 0 ; $i<count($coments) ; $i++){
             $users = User::find($coments[$i]->userId);
             $coments[$i]->users = $users;

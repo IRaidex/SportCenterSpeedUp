@@ -53,12 +53,12 @@
                 </div>
                 <div class="form-group text-center my-4">
                     <input type="submit" class="btn btn-primary mr-5" id="crear" value="Crear">
-                    <button type="button" class="btn btn-danger ml-5">Resetear</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 @stop
 
 
