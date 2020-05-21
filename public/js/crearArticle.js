@@ -6,7 +6,7 @@ $(function(){
     $('#avisoFile').hide();
 
     var total_letras = 5000;
-    $('#content').keyup(function() {
+    $('#articulo').keyup(function() {
         var longitud = $(this).val().length;
         var resto = total_letras - longitud;
         $('#numero').html(resto).css('color','#E1523D');

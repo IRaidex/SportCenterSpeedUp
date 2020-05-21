@@ -35,7 +35,6 @@ Route::get('/crearArticulo', function(){
 
 
 Route::post('/articulo/create','ArticleController@store');
-
 Route::get('/articulos/all','ArticleController@index');
 Route::get('/articulo/{id}','ArticleController@show');
 Route::post('/articulo/comentario/create','ComentController@store');
@@ -43,6 +42,8 @@ Route::post('/articulo/comentario/create','ComentController@store');
 Auth::routes();
 
 Route::get('/usuarios','UserController@index');
-Route::get('/perfil/user','UserController@show');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/perfil/user','UserController@show');
+Route::post('/perfil/edit','UserController@update');
+
 

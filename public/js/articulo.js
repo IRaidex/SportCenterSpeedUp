@@ -30,7 +30,7 @@ $(function(){
                         var divPadre = $('<div>').addClass('ml-lg-5 row my-4 justify-content-end');
                         var div1 = $('<div>').addClass('col-lg-1 col-md-2 col-3 align-self-md-center');
                         var enlace = $('<a>');
-                        var img = $('<img>').attr({src: '/img/'+data['picture'] , alt: 'imagenPerfil'}).addClass('imgPerfil');
+                        var img = $('<img>').attr({src: '/perfil/'+data['picture'] , alt: 'imagenPerfil'}).addClass('imgPerfil');
                         var div2 = $('<div>').addClass('col-lg-8  col-md-7 col-8 align-self-md-center');
                         var span = $('<span>').addClass('text-left font-weight-bold text-sm-left').html(data['nombre']+' '+data['apellido1']+' '+data['apellido2']);
                         var parrafo1 = $('<p>').addClass('text-left').html(data['date']);

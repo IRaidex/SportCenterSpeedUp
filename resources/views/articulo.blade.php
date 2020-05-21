@@ -35,7 +35,7 @@
         <hr class="w-50">
         <div class="ml-lg-5 row justify-content-end" id="comentario">
             <div class="col-lg-1 col-md-2 col-3 mt-3 ">
-                <a href=""><img src="{{asset('img/default.png')}}" alt="imagenArticulo" class="imgPerfil"></a>
+                <a href=""><img src="{{asset('perfil/'.auth()->user()->picture)}}" alt="imagenArticulo" class="imgPerfil"></a>
             </div>
             <div class="col-lg-8 col-md-7 col-8 my-1">
                 <form action="{{ url('/articulo/comentario/create') }}" method="post" id="formComent">
@@ -54,7 +54,7 @@
 
         <div class="ml-lg-5 row my-4 justify-content-end">
             <div class="col-lg-1 col-md-2 col-3 align-self-md-center ">
-                <a href=""><img src="{{asset('img/'.$valor->users->picture)}}" alt="imagenPerfil" class="imgPerfil"></a>
+                <a href=""><img src="{{asset('perfil/'.$valor->users->picture)}}" alt="imagenPerfil" class="imgPerfil"></a>
             </div>
             <div class="col-lg-8  col-md-7 col-8 align-self-md-center">
                 <span class="text-left font-weight-bold text-sm-left">{{$valor->users->name}} {{$valor->users->firts_surname}} {{$valor->users->second_surname}}</span>

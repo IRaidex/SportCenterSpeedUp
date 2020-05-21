@@ -17,10 +17,10 @@ class UserController extends Controller
     {
         //
         $usuarios = User::all();
-        
+
         return view('adminPerfil')
             ->with('usuarios',$usuarios);
-            
+
     }
 
     /**
@@ -53,7 +53,7 @@ class UserController extends Controller
     public function show()
     {
         $user = User::find(Auth::user()->idUser);
-        
+
         return view('perfil')
             ->with('user',$user);
     }
@@ -66,7 +66,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -76,9 +76,29 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+    //este método debe recibir un id de usuario cierto????
+    public function update(Request $request)
     {
-        //
+
+
+        $user = User::find(Auth::User()->idUser);
+        $user->name = $request->nombre;
+        $user->firts_surname = $request->apellido1;
+        $user->second_surname = $request->apellido2;
+        $user->email = $request->email; 
+
+        $id=Auth::User()->idUser;
+
+        if($request->picture != null){
+            $imagen = $request->picture;
+            $imagen->move('perfil','user'. $id.'.'.$imagen->getClientOriginalExtension());
+            $user->picture = 'user'. $id.'.'.$imagen->getClientOriginalExtension();
+        }
+
+
+
+        return $user->save();
     }
 
     /**

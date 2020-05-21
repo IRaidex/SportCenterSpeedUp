@@ -1,3 +1,22 @@
 h3{
     color: #E1523D;
 }
+
+small{
+    color: #E1523D;
+}
+
+.icono{
+    width: 45px;
+    height: 45px;
+}
+
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    cursor: pointer;
+}

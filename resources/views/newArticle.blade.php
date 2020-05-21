@@ -24,7 +24,7 @@
                     <small id="avisoTitle">El título tiene que tener entre 5 y 100 caracteres.</small>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" maxlength="5000" id="content" rows="10" name="content" placeholder="Escriba Articulo..." required></textarea>
+                    <textarea class="form-control" maxlength="5000" id="articulo" rows="10" name="content" placeholder="Escriba Articulo..." required></textarea>
                     <label for="caracteres" id="numero"></label>
                     <small id="avisoContent" >El articulo tiene que tener entre 5 y 5000 caracteres.</small>
                 </div> 

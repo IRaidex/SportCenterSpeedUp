@@ -65,9 +65,10 @@ class ArticleController extends Controller
         $article->tag3 = $request->tag3;
         $article->userId = Auth::user()->idUser;
 
-        $imagen = $request->file('imgArticulo');
+        $imagen = $request->imgArticulo;
         $imagen->move('articulos','articulo'.$ultimo.'.'.$imagen->getClientOriginalExtension());
         $article->picture = 'articulo'.$ultimo.'.'.$imagen->getClientOriginalExtension();
+        $article->save();
 
         return redirect('/articulos/all');
     }
