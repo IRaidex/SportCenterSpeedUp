@@ -1,0 +1,16 @@
+.titulo{
+ background-color: #E1523D;
+}
+
+.subtitulo{
+    color: #292A3A;
+}
+
+#fondoGris{
+    background-color: #F2F2F2;
+}
+
+.card{
+    width: 30rem;
+    height: 30rem;
+}

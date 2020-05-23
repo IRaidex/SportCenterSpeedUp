@@ -8,7 +8,7 @@
         <div class="col-md-5 d-md-none d-none d-lg-block">
 
             <div class="headerText">
-                <h1>Servicio 24h<br>Sin permanencia</h1>
+                <h1 class="text-uppercase font-weight-bold">Sin Matrícula<br>Sin permanencia</h1>
             </div>
 
         </div>
