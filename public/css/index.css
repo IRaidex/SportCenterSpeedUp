@@ -1,16 +1,40 @@
 .titulo{
- background-color: #E1523D;
+    background-color: #E1523D;
 }
 
 .subtitulo{
     color: #292A3A;
 }
 
+.subtitulo2{
+    color: #E1523D;
+}
+
+
 #fondoGris{
     background-color: #F2F2F2;
 }
 
-.card{
+#fondoAzul{
+    background-color: #292A3A;
+}
+
+
+.inscribete{
     width: 30rem;
     height: 30rem;
+}
+
+.articulos{
+    width: 25rem;
+    height: 35rem;
+}
+
+hr{
+    background-color: #E1523D;
+}
+
+.fotoCard{
+    width: 400px;
+    height: 320px;
 }

@@ -39,11 +39,11 @@
     <div class="row justify-content-around ">
         <div class="col-md-12">
             <div class="row justify-content-center">
-                <div class="card m-5">
+                <div class="card inscribete m-5">
                     <div class="card-header titulo text-center">
                         <h2 class="text-white text-uppercase font-weight-bold">Mensual</h2>
                         <h1 class="text-white text-uppercase font-weight-bold">29.90</h1>
-                        <h3 class="text-white">€/Mes</h3>
+                        <h3 class="text-white">€ / Mes</h3>
 
                     </div>
                     <div class="card-body text-center">
@@ -57,11 +57,11 @@
                     </div>
                     <div class="card-footer bg-white text-center"><button class="btn titulo text-white">INSCRÍBETE</button></div>
                 </div>
-                <div class="card m-5">
+                <div class="card inscribete m-5">
                     <div class="card-header titulo text-center">
                         <h2 class="text-white text-uppercase font-weight-bold">TRIMESTRAL</h2>
                         <h1 class="text-white text-uppercase font-weight-bold">21.90</h1>
-                        <h3 class="text-white">€/Mes</h3>
+                        <h3 class="text-white">€ / Mes</h3>
 
                     </div>
                     <div class="card-body text-center">
@@ -82,8 +82,53 @@
     </div>
 
 </div>
+
+<!--NOTICIAS-->
+<div class="container-fluid" id="fondoAzul">
+    <div class="row justify-content-around">
+        <div class="col-12">
+            <div class="row justify-content-center m-0">
+                <div class="card m-5 articulos" >
+                    <img class="card-img-top fotoCard" src="{{asset('img/articulo.jpg')}}" alt="Card image cap">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold subtitulo">El beneficio del deporte en personas de avanzada edad.</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content por que yo lo valgo sabes?.</p>
+                    </div>
+                    <div class="card-footer bg-white text-center bg-light">
+                        <a href="#" class="btn titulo text-white">Leer más...</a>
+                    </div>
+                </div>
+                <div class="card m-5 articulos">
+                    <img class="card-img-top fotoCard" src="{{asset('img/default.png')}}" alt="Card image cap">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold subtitulo">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer bg-white text-center bg-light">
+                        <a href="#" class="btn titulo text-white">Leer más...</a>
+                    </div>
+                </div>
+                <div class="card m-5 articulos">
+                    <img class="card-img-top fotoCard" src="{{asset('img/articulo.jpg')}}" alt="Card image cap">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold subtitulo">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer bg-white text-center bg-light">
+                        <a href="#" class="btn titulo text-white">Leer más...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn titulo text-white text-center mb-5">Ver todos</a>
+    </div>
+
+</div>
+
 <!--GALERIA DE IMAGENES-->
 <div class="container">
+    <h1 class="text-uppercase font-weight-bold subtitulo text-center mt-5">GALERIA DE <span class="subtitulo2">FOTOS</span></h1>
+    <hr class="w-75">
     <div class="row text-center text-lg-left my-5">
         <div class="col-lg-4 col-md-6 col-12">
             <img class="img-fluid img-thumbnail mb-4" src="{{asset('img/galeria0.jpg')}}" alt="galeria">
