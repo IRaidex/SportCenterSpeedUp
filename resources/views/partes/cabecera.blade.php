@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-5 col-12 text-center">
             <div id="logo">
-                <a href="{{url('/')}}"><img src="{{asset('img/logo-rojo-recortado.png')}}" alt="logo"></a>
+                <a href="{{url('/')}}"><img src="{{asset('img/logo-rojo-recortado.png')}}" alt="logo" class="my-4"></a>
             </div>
         </div>        
         <div class="col-md-5 d-md-none d-none d-lg-block">

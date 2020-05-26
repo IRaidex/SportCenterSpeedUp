@@ -55,7 +55,7 @@
                             <p>Iniciativa tráete un amigo</p>
                         </span>
                     </div>
-                    <div class="card-footer bg-white text-center"><button class="btn titulo text-white">INSCRÍBETE</button></div>
+                    <div class="card-footer bg-white text-center"><a href="{{url('inscribete')}}" alt="inscribete" class="btn titulo text-white">INSCRÍBETE</a></div>
                 </div>
                 <div class="card inscribete m-5">
                     <div class="card-header titulo text-center">
@@ -74,7 +74,7 @@
                             <p>Asesoramiento personalizado</p>
                         </span>
                     </div>
-                    <div class="card-footer bg-white text-center"><button class="btn titulo text-white">INSCRÍBETE</button></div>
+                    <div class="card-footer bg-white text-center"><a href="{{url('inscribete')}}" alt="inscribete" class="btn titulo text-white">INSCRÍBETE</a></div>
                 </div>
             </div>
         </div>

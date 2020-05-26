@@ -33,6 +33,11 @@ Route::get('/crearArticulo', function(){
     return view('newArticle');
 });
 
+Route::get('/inscribete', function(){
+    return view('inscribete');
+});
+
+
 
 Route::post('/articulo/create','ArticleController@store');
 Route::get('/articulos/all','ArticleController@index');
@@ -45,5 +50,3 @@ Route::get('/usuarios','UserController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/perfil/user','UserController@show');
 Route::post('/perfil/edit','UserController@update');
-
-

@@ -1,0 +1,17 @@
+
+#fondo{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/pago.jpg");
+    height: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.subtitulo{
+    color: #292A3A;
+}
+
+.subtitulo2{
+    color: #E1523D;
+}

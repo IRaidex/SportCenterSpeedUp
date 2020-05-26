@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContractTable extends Migration
+class CreatePackTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateContractTable extends Migration
      */
     public function up()
     {
-        Schema::create('contract', function (Blueprint $table) {
-            $table->float('cost');
-            $table->bigInteger('userId')->unsigned();
-            $table->bigInteger('packId')->unsigned();
-            $table->primary(array('userId', 'packId')); 
+        Schema::create('pack', function (Blueprint $table) {
+            $table->bigIncrements('idPack');
+            $table->string('name',50);
+            $table->float('price');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateContractTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contract');
+        Schema::dropIfExists('pack');
     }
 }

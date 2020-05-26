@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParticipateTable extends Migration
+class AddForeignToAddressTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateParticipateTable extends Migration
      */
     public function up()
     {
-        Schema::create('participate', function (Blueprint $table) {
-            $table->bigInteger('tournamentId')->unsigned();
-            $table->bigInteger('teamId')->unsigned();
-            $table->primary(array('tournamentId', 'teamId'));
-            $table->timestamps();
+        Schema::table('address', function (Blueprint $table) {
+            $table->foreign('userId')->references('idUser')->on('users')->onDelete('cascade');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateParticipateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('participate');
+        Schema::table('address', function (Blueprint $table) {
+            $table->dropForeign('address_userId_foreign');
+        });
     }
 }

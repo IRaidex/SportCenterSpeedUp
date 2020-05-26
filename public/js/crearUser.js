@@ -1,11 +1,8 @@
 $(function(){
 
-
     $('small').hide();
 
-
     $('#formRegister :input').blur(function(){
-
 
         if($(this).attr('name') == 'name'){
             if($(this).val().match( /^[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]{3,50}$/)){
@@ -15,7 +12,6 @@ $(function(){
                 $(this).addClass('error');
                 $('#avisoNombre').show();
             }
-
         }else if($(this).attr('name') == 'firts_surname'){
             if($(this).val().match( /^[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]{3,50}$/)){
                 $(this).removeClass('error')
@@ -24,7 +20,6 @@ $(function(){
                 $(this).addClass('error');
                 $('#avisoApellido1').show();
             }
-
         }else if($(this).attr('name') == 'second_surname'){
             if($(this).val().match( /^[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]{3,50}$/)){
                 $(this).removeClass('error')
@@ -33,7 +28,6 @@ $(function(){
                 $(this).addClass('error');
                 $('#avisoApellido2').show();
             }
-
         }else if($(this).attr('name') == 'date_birth'){
             var fechaActual = new Date();
             var birthday = new Date($(this).val());
@@ -66,12 +60,10 @@ $(function(){
                     $(this).addClass('error');
                     $('#avisoFecha').show();
                 }
-
             }else{
                 $(this).addClass('error');
                 $('#avisoFecha').show();
             }
-
         }else if($(this).attr('name') == 'sex'){
             if($(this).is(':checked')){
                 var radios = $('input:radio');
@@ -81,8 +73,6 @@ $(function(){
                 $(this).addClass('error');
                 $('#avisoSex').show();
             }
-
-
         }else if($(this).attr('name') == 'email'){
             if($(this).val().match(/^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/)){
                 $(this).removeClass('error')
@@ -103,7 +93,6 @@ $(function(){
                 $(this).addClass('error');
                 $('#avisoPass').show();
             }
-
         }else if($(this).attr('name') == 'password_confirmation'){
             if($(this).val() == $('#password').val()){
                 $(this).removeClass('error')
@@ -121,9 +110,7 @@ $(function(){
                 $(this).addClass('error');
             }
         }
-
     });
-
 
     $('#registro').click(function(event){
         event.preventDefault();
@@ -137,22 +124,13 @@ $(function(){
                 $(inputs[i]).focus();
                 $(inputs[i]).blur();
             }
-            
+
             if($(inputs[i]).hasClass('error')){
                 error = true;
             }
-
         }
-
-        console.log(error);
-
         if(error == false){
             $('#formRegister').submit();    
         }
-
-
-
     });
-
-
 });

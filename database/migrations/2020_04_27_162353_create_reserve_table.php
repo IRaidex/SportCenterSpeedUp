@@ -14,13 +14,12 @@ class CreateReserveTable extends Migration
     public function up()
     {
         Schema::create('reserve', function (Blueprint $table) {
-            $table->bigInteger('idUser');
-            $table->bigInteger('idTrack');
-            $table->Date('date');
+   
+            $table->timestamp('date');
             $table->bigInteger('userId')->unsigned();
             $table->bigInteger('trackId')->unsigned();
             $table->timestamps();
-            $table->primary(array('idUser', 'idTrack')); 
+            $table->primary(array('userId', 'trackId')); 
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignToContractTable extends Migration
+class AddForeignToContainTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddForeignToContractTable extends Migration
      */
     public function up()
     {
-        Schema::table('contract', function (Blueprint $table) {
-            $table->foreign('userId')->references('idUser')->on('users')->onDelete('cascade');
+        Schema::table('contain', function (Blueprint $table) {
+            $table->foreign('packId')->references('idPack')->on('pack')->onDelete('cascade');
             $table->foreign('serviceId')->references('idService')->on('service')->onDelete('cascade');
         });
     }
@@ -26,9 +26,9 @@ class AddForeignToContractTable extends Migration
      */
     public function down()
     {
-        Schema::table('contract', function (Blueprint $table) {
-            $table->dropForeign('contract_userId_foreign');
-            $table->dropForeign('contract_serviceId_foreign');     
+        Schema::table('contain', function (Blueprint $table) {
+            $table->dropForeign('contain_packId_foreign');
+            $table->dropForeign('contain_serviceId_foreign');
         });
     }
 }
