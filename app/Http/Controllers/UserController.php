@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Address;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -53,9 +54,11 @@ class UserController extends Controller
     public function show()
     {
         $user = User::find(Auth::user()->idUser);
+        $adress = Address::where('userId', Auth::User()->idUser)->get()->first();
 
         return view('perfil')
-            ->with('user',$user);
+            ->with('user',$user)
+            ->with('address',$adress);
     }
 
     /**
@@ -80,7 +83,37 @@ class UserController extends Controller
     //este método debe recibir un id de usuario cierto????
     public function update(Request $request)
     {
+        if($request->via != "" && $request->puerta != "" && $request->provincia != "" && $request->localidad != "" && $request->cp != ""){
+            $dir =  Address::where('userId', Auth::User()->idUser)->first();
+            if($dir == null){
 
+                $address = new Address;
+                $address->number = $request->numero;
+                $address->location = $request->localidad;
+                $address->via = $request->via;
+                $address->door = $request->puerta;
+                $address->floor = $request->piso;
+                $address->province = $request->provincia;
+                $address->type = $request->envio;
+                $address->cp = $request->cp;
+                $address->userId = Auth::User()->idUser;
+                $address->save();
+
+            }else{
+
+                $dir->number = $request->numero;
+                $dir->location = $request->localidad;
+                $dir->via = $request->via;
+                $dir->door = $request->puerta;
+                $dir->floor = $request->piso;
+                $dir->province = $request->provincia;
+                $dir->type = $request->envio;
+                $dir->cp = $request->cp;
+                $dir->userId = Auth::User()->idUser;
+                $dir->save();
+
+            }
+        }
 
         $user = User::find(Auth::User()->idUser);
         $user->name = $request->nombre;
@@ -95,8 +128,6 @@ class UserController extends Controller
             $imagen->move('perfil','user'. $id.'.'.$imagen->getClientOriginalExtension());
             $user->picture = 'user'. $id.'.'.$imagen->getClientOriginalExtension();
         }
-
-
 
         return $user->save();
     }

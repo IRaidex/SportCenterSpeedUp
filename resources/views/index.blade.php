@@ -89,30 +89,30 @@
         <div class="col-12">
             <div class="row justify-content-center m-0">
                 <div class="card m-5 articulos" >
-                    <img class="card-img-top fotoCard" src="{{asset('img/articulo.jpg')}}" alt="Card image cap">
+                    <img class="card-img-top fotoCard" src="{{asset('img/mayores.jpg')}}" alt="Card image cap">
                     <div class="card-body text-center">
                         <h5 class="card-title font-weight-bold subtitulo">El beneficio del deporte en personas de avanzada edad.</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content por que yo lo valgo sabes?.</p>
+                        <p class="card-text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
                     </div>
                     <div class="card-footer bg-white text-center bg-light">
                         <a href="#" class="btn titulo text-white">Leer más...</a>
                     </div>
                 </div>
                 <div class="card m-5 articulos">
-                    <img class="card-img-top fotoCard" src="{{asset('img/default.png')}}" alt="Card image cap">
+                    <img class="card-img-top fotoCard" src="{{asset('img/pago.jpg')}}" alt="Card image cap">
                     <div class="card-body text-center">
-                        <h5 class="card-title font-weight-bold subtitulo">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title font-weight-bold subtitulo">Como manterner la rutina diaria.</h5>
+                        <p class="card-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
                     </div>
                     <div class="card-footer bg-white text-center bg-light">
                         <a href="#" class="btn titulo text-white">Leer más...</a>
                     </div>
                 </div>
                 <div class="card m-5 articulos">
-                    <img class="card-img-top fotoCard" src="{{asset('img/articulo.jpg')}}" alt="Card image cap">
+                    <img class="card-img-top fotoCard" src="{{asset('img/apertura.png')}}" alt="Card image cap">
                     <div class="card-body text-center">
-                        <h5 class="card-title font-weight-bold subtitulo">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title font-weight-bold subtitulo">Nueva apertura</h5>
+                        <p class="card-text">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum".</p>
                     </div>
                     <div class="card-footer bg-white text-center bg-light">
                         <a href="#" class="btn titulo text-white">Leer más...</a>

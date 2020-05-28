@@ -50,15 +50,10 @@ $(function(){
 
                         $('#content').val("");
 
-                    },dataType:'json',
+                    }
                 });
             });
             $('#caja').fadeIn('slow')
         }
     });
-
-
-
-
-
 });

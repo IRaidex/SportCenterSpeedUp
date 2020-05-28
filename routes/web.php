@@ -38,7 +38,6 @@ Route::get('/inscribete', function(){
 });
 
 
-
 Route::post('/articulo/create','ArticleController@store');
 Route::get('/articulos/all','ArticleController@index');
 Route::get('/articulo/{id}','ArticleController@show');

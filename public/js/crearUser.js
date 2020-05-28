@@ -65,7 +65,16 @@ $(function(){
                 $('#avisoFecha').show();
             }
         }else if($(this).attr('name') == 'sex'){
-            if($(this).is(':checked')){
+            if($(this).val() == 'hombre'){
+                if($(this).is(':checked') || $('input:radio[value="mujer"]').is(':checked')){
+                    var radios = $('input:radio');
+                    radios.removeClass('error')
+                    $('#avisoSex').hide();
+                }else{
+                    $(this).addClass('error');
+                    $('#avisoSex').show();
+                }
+            }if($(this).is(':checked') || $('input:radio[value="hombre"]').is(':checked')){
                 var radios = $('input:radio');
                 radios.removeClass('error')
                 $('#avisoSex').hide();
@@ -81,10 +90,7 @@ $(function(){
                 $(this).addClass('error');
                 $('#avisoEmail').show();
             }
-            if($(this).val() == ""){
-                $(this).addClass('error');
-                $('#avisoEmail').show();
-            }
+
         }else if($(this).attr('name') == 'password'){
             if($(this).val().match( /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/)){
                 $(this).removeClass('error')
@@ -101,7 +107,69 @@ $(function(){
                 $(this).addClass('error');
                 $('#avisoConfirm').show();
             }
-        }else if($(this).attr('name') == 'terminos'){
+        }else if($(this).attr('name') == 'via'){
+
+            if($(this).val().match(/^[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]{3,50}$/)){
+                $(this).removeClass('error')
+                $('#avisoVia').hide();
+            }else{
+                $(this).addClass('error');
+                $('#avisoVia').show();
+            }
+        }else if($(this).attr('name') == 'numero'){
+            if($(this).val() != ""){
+                if($(this).val().match(/^[0-9]{1,3}$/)){
+                    $(this).removeClass('error')
+                    $('#avisoNumero').hide();
+                }else{
+                    $(this).addClass('error');
+                    $('#avisoNumero').show();
+                }
+            }
+        }else if($(this).attr('name') == 'piso'){
+            if($(this).val() != ""){
+                if($(this).val().match(/^[0-9]{1,2}$/)){
+                    $(this).removeClass('error')
+                    $('#avisoPiso').hide();
+                }else{
+                    $(this).addClass('error');
+                    $('#avisoPiso').show();
+                }
+            }
+        }else if($(this).attr('name') == 'puerta'){
+            if($(this).val().match(/^[0-9]{1,2}$/)){
+                $(this).removeClass('error')
+                $('#avisoPuerta').hide();
+            }else{
+                $(this).addClass('error');
+                $('#avisoPuerta').show();
+            }
+        }else if($(this).attr('name') == 'provincia'){
+            if($(this).val().match(/^[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]{3,35}$/)){
+                $(this).removeClass('error')
+                $('#avisoProvincia').hide();
+            }else{
+                $(this).addClass('error');
+                $('#avisoProvincia').show();
+            }
+        }else if($(this).attr('name') == 'localidad'){
+            if($(this).val().match(/^[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]{3,35}$/)){
+                $(this).removeClass('error')
+                $('#avisoLocalidad').hide();
+            }else{
+                $(this).addClass('error');
+                $('#avisoLocalidad').show();
+            }
+        }else if($(this).attr('name') == 'cp'){
+            if($(this).val().match(/^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$/)){
+                $(this).removeClass('error')
+                $('#avisoCp').hide();
+            }else{
+                $(this).addClass('error');
+                $('#avisoCp').show();
+            }
+        }
+        else if($(this).attr('name') == 'terminos'){
             if($(this).is(':checked')){
                 $('#avisoTerm').hide();
                 $(this).removeClass('error');
@@ -120,10 +188,8 @@ $(function(){
 
         for(var i=0 ; i<inputs.length ; i++){
 
-            if($(inputs[i]).attr('name') != 'sex'){
-                $(inputs[i]).focus();
-                $(inputs[i]).blur();
-            }
+            $(inputs[i]).focus();
+            $(inputs[i]).blur();
 
             if($(inputs[i]).hasClass('error')){
                 error = true;

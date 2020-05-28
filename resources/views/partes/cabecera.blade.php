@@ -86,7 +86,7 @@
         </div>
     </div>
     @else
-    <div class="dropdown-menu mr-5">
+    <div class="dropdown-menu mr-2">
         <a class="dropdown-item link" href="{{ url('/perfil/user') }}">Perfil</a>
         <a class="dropdown-item link" href="{{ route('logout') }}"
            onclick="event.preventDefault();
