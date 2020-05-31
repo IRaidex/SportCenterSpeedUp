@@ -16,12 +16,12 @@
     <hr class="w-75">
     <form action="#" method="post" id="formPerfil" enctype="multipart/form-data">
         @csrf
-        <div class="row justify-content-around my-md-5 my-1">
+        <div class="row justify-content-center my-md-5 my-1">
 
             <div class="col-md-2 col-sm-10 col-12 text-center">
                 <div class="image-upload">
                     <label for="file-input">
-                        <img src="{{asset('perfil/'.$user->picture)}}" id="fotoPerfil" alt="fotoPerfil" class="img-fluid" title="Haz clic para cambiar de imagen">
+                        <img src="{{asset('perfil/'.$user->picture)}}" id="fotoPerfil" alt="fotoPerfil" class="img-fluid border border-dark" title="Haz clic para cambiar de imagen">
                     </label>
 
                     <input id="file-input" type="file" name="picture" disabled>

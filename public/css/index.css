@@ -38,3 +38,9 @@ hr{
     width: 400px;
     height: 320px;
 }
+
+.enlace:hover{
+    text-decoration: none;
+    color: #E1523D;
+        
+}

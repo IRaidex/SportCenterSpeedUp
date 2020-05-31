@@ -10,3 +10,20 @@ h3{
 small{
     color: #E1523D;
 }
+
+.btn-leer{
+    border: 1px solid #E1523D;
+    background-color: transparent;
+    color: #E1523D;
+}
+
+.btn-leer:hover{
+    background-color: #E1523D;
+    color: white;
+}
+
+.pagination{
+    position: absolute;
+    left: 44.5%;
+
+}

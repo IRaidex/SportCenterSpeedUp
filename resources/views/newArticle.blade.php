@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label for="title" class="font-weight-bold">Titulo</label>
                     <input type="text" name="title" class="form-control" id="title" placeholder="Introduce Titulo" required>
-                    <small id="avisoTitle">El título tiene que tener entre 5 y 100 caracteres.</small>
+                    <small id="avisoTitle">El título tiene que tener entre 5 y 150 caracteres.</small>
                 </div>
                 <div class="form-group">
                     <textarea class="form-control" maxlength="5000" id="articulo" rows="10" name="content" placeholder="Escriba Articulo..." required></textarea>

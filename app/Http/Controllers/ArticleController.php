@@ -9,6 +9,7 @@ use App\Coment;
 use Illuminate\Support\Facades\Auth;
 
 
+
 class ArticleController extends Controller
 {
     /**
@@ -18,7 +19,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articulos = Article::all();
+
+        $articulos = Article::select()
+            ->orderBy('idArticle', 'DESC')
+            ->paginate(3);
 
         for($i = 0 ; $i<count($articulos) ; $i++){
             $user = User::find($articulos[$i]->userId);
@@ -26,9 +30,32 @@ class ArticleController extends Controller
 
         }   
 
-
         return view('/articulos')
             ->with('articulos',$articulos);
+    }
+
+
+
+    /**
+     * Devuelve los 3 ultimos articulos
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function ultimos()
+    {
+
+        $articulos = Article::select()
+            ->orderBy('idArticle', 'DESC')
+            ->take(3)
+            ->get();
+
+        for($i = 0 ; $i<count($articulos) ; $i++){
+            $user = User::find($articulos[$i]->userId);
+            $articulos[$i]->datosUser = $user;
+
+        }   
+
+        return $articulos;
     }
 
     /**
@@ -120,7 +147,12 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $articulo = Article::select()
+            ->where('idArticle',$id)
+            ->get();
+
+        return view('editArticle')
+            ->with('articulo',$articulo);
     }
 
     /**

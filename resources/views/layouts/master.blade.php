@@ -9,6 +9,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+        <script src="{{asset('js/master.js')}}"></script>
         @yield('css')
         @yield('js')
     </head>
@@ -16,5 +17,8 @@
         @include('partes.cabecera')
         @yield('content')
         @include('partes.footer')
+        <a href="#" class="scroll-top" title="Ir arriba">
+            <i class="fa fa-angle-up"><img src="{{asset('img/scrollUp.svg')}}" alt="scroll"></i>
+        </a>
     </body>
 </html>

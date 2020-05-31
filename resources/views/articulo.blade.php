@@ -15,11 +15,16 @@
     <title>Articulo • {{$articulo[0]->title}}</title>
     @stop
 
-    <div class="row my-5 justify-content-center">
+    <div class="row mt-5 mb-4 justify-content-center">
         <div class="col-md-3 col-12 text-center">
             <a href=""><img src="{{asset('articulos/'.$articulo[0]->picture)}}" alt="imagenArticulo" class="img-fluid"></a>
             <p class="text-center my-3">{{$valor->name}} {{$valor->firts_surname}} {{$valor->second_surname}}</p>
             <p class="text-center">{{$articulo[0]->date}}</p>
+            @if(Auth::user())
+            @if(Auth::user()->idUser == $valor->idUser or Auth::user()->role == 'Admin')
+            <a href="{{url('/articulo/edit/'.$articulo[0]->idArticle)}}" class="btn btn-leer btn-sm">Editar</a>
+            @endif
+            @endif
         </div>
         <div class="col-md-8 col-12">
             <h3>{{$articulo[0]->title}}</h3>
@@ -32,12 +37,13 @@
 
     @endforeach 
     <div id="caja">
+        @if(Auth::user())
         <hr class="w-50">
         <div class="ml-lg-5 row justify-content-end" id="comentario">
             <div class="col-lg-1 col-md-2 col-3 mt-3 ">
                 <a href=""><img src="{{asset('perfil/'.auth()->user()->picture)}}" alt="imagenArticulo" class="imgPerfil"></a>
             </div>
-            <div class="col-lg-8 col-md-7 col-8 my-1">
+            <div class="col-lg-8 col-md-7 col-8 mt-3 ">
                 <form action="{{ url('/articulo/comentario/create') }}" method="post" id="formComent">
                     @csrf
                     <div class="form-group ">
@@ -48,6 +54,7 @@
                 </form>
             </div>
         </div>
+        @endif
         <hr class="w-50 justify-content-end">
 
         @foreach($coments as $key => $valor)

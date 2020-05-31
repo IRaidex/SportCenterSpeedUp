@@ -1,7 +1,8 @@
 .imgPerfil{
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
+    border: 1px solid black;
 }
 
 h3{
@@ -15,4 +16,15 @@ h3{
 
 #enviar{
     background-color: #E1523D;
+}
+
+.btn-leer{
+    border: 1px solid #E1523D;
+    background-color: transparent;
+    color: #E1523D;
+}
+
+.btn-leer:hover{
+    background-color: #E1523D;
+    color: white;
 }

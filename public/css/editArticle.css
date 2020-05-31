@@ -1,0 +1,22 @@
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    cursor: pointer;
+}
+
+.icono{
+    width: 45px;
+    height: 45px;
+}
+
+small{
+    color:#E1523D;
+}
+
+h3{
+    color: #E1523D;
+}

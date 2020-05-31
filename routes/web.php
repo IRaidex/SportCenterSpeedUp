@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function(){
     return view('index');
 });
@@ -31,7 +33,8 @@ Route::get('/crearTorneo', function(){
 
 Route::get('/crearArticulo', function(){
     return view('newArticle');
-});
+})->middleware('ambos');
+
 
 Route::get('/inscribete', function(){
     return view('inscribete');
@@ -40,12 +43,13 @@ Route::get('/inscribete', function(){
 
 Route::post('/articulo/create','ArticleController@store');
 Route::get('/articulos/all','ArticleController@index');
+Route::get('/articulos/ultimos','ArticleController@ultimos');
 Route::get('/articulo/{id}','ArticleController@show');
+Route::get('/articulo/edit/{id}','ArticleController@edit');
+Route::get('/articulo/update/{id}','ArticleController@update');
 Route::post('/articulo/comentario/create','ComentController@store');
 
-Auth::routes();
-
-Route::get('/usuarios','UserController@index');
+Route::get('/usuarios','UserController@index')->middleware('admin');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/perfil/user','UserController@show');
 Route::post('/perfil/edit','UserController@update');

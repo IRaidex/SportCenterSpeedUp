@@ -22,7 +22,7 @@
             <p class="foot">contacto@speedup.com</p>
         </div>
     </div>
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-3">
         <div class="row justify-content-center">
             <div class="col-lg-3 col-12 text-center">
                 <h5 class="text-white">Siguenos en nuestras redes Sociales!</h5>

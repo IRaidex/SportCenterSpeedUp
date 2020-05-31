@@ -17,7 +17,7 @@ class CreateArticleTable extends Migration
             $table->bigIncrements('idArticle');    
             $table->text('content',5000);
             $table->timestamp('date');
-            $table->string('title',75);
+            $table->string('title',150);
             $table->string('picture',100);
             $table->string('tag1',15);
             $table->string('tag2',15);

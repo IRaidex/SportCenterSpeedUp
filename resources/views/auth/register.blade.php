@@ -49,7 +49,7 @@
                         <input id="date_birth" type="date" class="form-control" name="date_birth" required autocomplete="date_birth" >
                         <small id="avisoFecha">Tiene que ser mayor de 16 años.</small>
                     </div>
-                    <div class="col-md-3 form-group text-center">
+                    <div class="col-md-3 form-group text-left">
                         <label for="sexo" class="font-weight-bold">{{ __('Sexo') }}</label>
                         <div class="col-md-6 form-row">
                             <div class="form-check form-check-inline">
