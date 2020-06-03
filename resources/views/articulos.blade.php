@@ -11,8 +11,8 @@
 @stop
 @section('content')
 <div class="container-fluid mb-5">
-    <h3 class="mt-4 text-uppercase font-weight-bold ">Artículos</h3>
-    <hr>
+    <h3 class="mt-4 text-uppercase text-center font-weight-bold ">Artículos</h3>
+    <hr class="w-75">
     <div class="row justify-content-center ">
         <!--Articulos-->
         @foreach($articulos as $key => $valor)
@@ -40,21 +40,8 @@
         @endforeach
         <div class="col-12 mb-5">
             {{$articulos->render() }}
-            
         </div>
     </div>
-
-    <!--
-<div class="btn-toolbar d-flex justify-content-center mb-3" role="toolbar" aria-label="Toolbar with button groups">
-<div class="btn-group mr-2" role="group" aria-label="First group">
-<button type="button" class="btn btn-secondary active">Inicio</button>
-<button type="button" class="btn btn-secondary">1</button>
-<button type="button" class="btn btn-secondary">2</button>
-<button type="button" class="btn btn-secondary">3</button>
-<button type="button" class="btn btn-secondary active">Final</button>
-</div>
-</div>
--->
 </div>
 
 @stop

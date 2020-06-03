@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('titulo')
-<title>Editar articulo • Speed Up</title>
+<title>{{$articulo[0]->title}} • Speed Up</title>
 @stop
 @section('css')
 <link rel="stylesheet" href="{{asset('css/estilo.css')}}" type="text/css">
@@ -11,14 +11,22 @@
 @stop
 @section('content')
 <div class="container-fluid">
-    <h3 class="mt-4 text-uppercase font-weight-bold text-center">Perfil</h3>
+    <div class="form-row">
+        <div class="col-1">
+            <a href="/articulo/" class="text-left volver"><img src="{{asset('img/volver.svg')}}" class="botonVolver mt-3" alt="Botón"></a>
+        </div>
+        <div class="col-11">
+            <h3 class=" text-uppercase font-weight-bold text-center mt-4"><span class="colorAzul">Editar</span> Artículo</h3>
+        </div>
+    </div>
     <hr class="w-75">
     <form action="#" method="post" id="formArticle" enctype="multipart/form-data">
+        @csrf
         <div class="row justify-content-center">
             <div class="col-md-2 col-sm-10 col-12 text-center mt-3">
                 <div class="image-upload">
                     <label for="file-input">
-                        <img src="{{asset('articulos/'.$articulo[0]->picture)}}" id="fotoPerfil" alt="fotoPerfil" class="img-fluid" title="Haz clic para cambiar de imagen">
+                        <img src="{{asset('articulos/'.$articulo[0]->picture)}}" id="fotoArticulo" alt="fotoArticulo" class="img-fluid" title="Haz clic para cambiar de imagen">
                     </label>
                     <input id="file-input" type="file" name="picture" disabled>
                 </div>
@@ -51,14 +59,45 @@
                     <div class="col-md-12 form-group mt-0"><small id="avisoTag">Las etiquetas tienen que tener entre 3 y 15 caracteres.</small></div>
                 </div>
                 <div class="form-group col-md-12 text-center mt-3">
-                    <span class="btn btn-info text-right mod">Modificar</span>
-                    <span class="btn btn-success text-right save" id="{{$articulo[0]->idArticle}}">Guardar</span>
-                    <span class="btn btn-danger text-right cancelar">Cancelar</span>
+                    <span class="btn btn-info  mod">Modificar</span>
+                    <span class="btn btn-success  save" id="{{$articulo[0]->idArticle}}">Guardar</span>
+                    <span class="btn btn-danger  cancelar">Cancelar</span>
+                    @if(Auth::user()->role == 'Admin')
+                    <span id="admin{{$articulo[0]->idArticle}}" class="btn btn-danger  eliminar1">Eliminar</span>
+                    @endif
+                    
+                    @if(Auth::user()->role == 'monitor')
+                    <span id="monitor{{$articulo[0]->idArticle}}" class="btn btn-danger  eliminar2">Eliminar</span>
+                    @endif
+                    
                     <img src="{{asset('img/cambioSave.svg')}}" alt="iconoBien" id="success" class="ml-2 icono">
                     <img src="{{asset('img/cambioError.svg')}}" alt="iconoMal" id="error"class="ml-2 icono">                     
                 </div>    
             </div>
         </div>
     </form>
+</div>
+
+<!--MODAL-->
+<div class="modal fade " id="modalEliminar" role="dialog">
+    <div class="modal-dialog modal-lg mt-5">
+
+        <!-- MODAL contenido-->
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h4 class="modal-title text-white">Atención</h4>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <h3>Estas seguro que quieres eliminar este articulo?</h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">{{__('Cerrar')}}</button>
+                <a href=""  class="btn btn-danger eliminarUsuario" >{{__('Aceptar')}}</a>
+            </div>
+        </div>
+
+    </div>
 </div>
 @stop

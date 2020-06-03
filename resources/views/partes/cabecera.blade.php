@@ -14,7 +14,7 @@
         </div>
     </div>
 </header>
-<nav class="navbar navbar-expand-md colornav">
+<nav class="navbar navbar-expand-lg colornav">
     <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target=".opciones">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,12 +39,27 @@
         <li class="nav-item">
             <a class="nav-link color" href="http://127.0.0.1:8000/#scrollContacto">Contacto</a>
         </li>
+        @if(Auth::user())
+        @if(Auth::user()->role == 'Admin' or  Auth::user()->role == 'monitor')
         <li class="nav-item">
             <a class="nav-link color" href="{{url('crearArticulo')}}">Crear Artículo</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link color" href="{{url('usuarios')}}">Ver Perfiles</a>
+        @endif
+        @if(Auth::user()->role == 'Admin')
+         <li class="nav-item">
+            <a class="nav-link color" href="{{url('crearPack')}}">Crear Pack</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link color" href="{{url('usuarios/admin')}}">Administrar Perfiles</a>
+        </li> 
+        <li class="nav-item">
+            <a class="nav-link color" href="{{url('articulos/admin')}}">Administrar Artículos</a>
+        </li>
+                <li class="nav-item">
+            <a class="nav-link color" href="{{url('packs/admin')}}">Administrar Packs</a>
+        </li>
+        @endif
+        @endif
     </ul>
     <div class="btn-group dropleft">
         @if(!Auth::user())
@@ -67,10 +82,8 @@
     <!-- Modal Login -->
     <div class="modal fade mt-5" id="login" role="dialog">
         <div class="modal-dialog modal-lg mt-5">
-
-            <!-- MODAL contenido-->
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header modalHeader">
                     <h4 class="modal-title">{{__('Login')}}</h4>
                 </div>
                 <div class="modal-body">
@@ -91,7 +104,7 @@
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
+                                    <strong class="strong">{{ $message }}</strong>
                                 </span>
                                 @enderror
                             </div>
@@ -117,8 +130,8 @@
                         @endif
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{__('Cerrar')}}</button>
+                <div class="modal-footer modalHeader">
+                    <button type="button" class="btn btn-leer" data-dismiss="modal">{{__('Cerrar')}}</button>
                 </div>
             </div>
 

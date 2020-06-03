@@ -18,3 +18,15 @@ th{
 thead th:hover{
     color: #E1523D;
 }
+
+h3{
+    color: #E1523D;
+}
+
+.colorAzul{
+    color: #343A40;
+}
+
+.paplera{
+    cursor: pointer;
+}

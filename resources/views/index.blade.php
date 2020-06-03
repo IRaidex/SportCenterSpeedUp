@@ -41,44 +41,8 @@
 <div class="container-fluid" id="fondoGris">
     <div class="row justify-content-around " id="scrollInscribete">
         <div class="col-md-12">
-            <div class="row justify-content-center">
-                <div class="card inscribete m-5">
-                    <div class="card-header titulo text-center">
-                        <h2 class="text-white text-uppercase font-weight-bold">Mensual</h2>
-                        <h1 class="text-white text-uppercase font-weight-bold">29.90</h1>
-                        <h3 class="text-white">€ / Mes</h3>
-
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title font-weight-bold subtitulo">Matrícula 0.00 €</h5>
-                        <span class="card-text">
-                            <p>Camiseta de regalo</p>
-                            <p>Tarjeta identificativa</p>  
-                            <p>Acceso a todos los servicios</p>
-                            <p>Iniciativa tráete un amigo</p>
-                        </span>
-                    </div>
-                    <div class="card-footer bg-white text-center"><a href="{{{ Auth::user() ? url('inscribete') : url('register') }}}" alt="inscribete" class="btn titulo text-white">INSCRÍBETE</a></div>
-                </div>
-                <div class="card inscribete m-5">
-                    <div class="card-header titulo text-center">
-                        <h2 class="text-white text-uppercase font-weight-bold">TRIMESTRAL</h2>
-                        <h1 class="text-white text-uppercase font-weight-bold">21.90</h1>
-                        <h3 class="text-white">€ / Mes</h3>
-
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title font-weight-bold subtitulo">Matrícula 0.00 €</h5>
-                        <span class="card-text">
-                            <p>Pack Speed Up de regalo</p>
-                            <p>Tarjeta identificativa</p>  
-                            <p>Acceso a todos los servicios</p>
-                            <p>Iniciativa tráete un amigo</p>
-                            <p>Asesoramiento personalizado</p>
-                        </span>
-                    </div>
-                    <div class="card-footer bg-white text-center"><a href="{{{ Auth::user() ? url('inscribete') : url('register') }}}" alt="inscribete" class="btn titulo text-white">INSCRÍBETE</a></div>
-                </div>
+            <div class="row justify-content-center rowPacks">
+       
             </div>
         </div>
 

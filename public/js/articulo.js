@@ -2,25 +2,40 @@ $(function(){
 
     var error = false;
     var comentario = $('#content');
-
+    
+    //Funcion que captura el evento keyup y dependiendo del contenido el elemento habiltia el boton o no
     comentario.keyup(function(){
 
         if(comentario.val() != ""){
             $('#enviar').removeClass('disabled');
+            $('#numero').show();
             error = true;
             console.log(error);
         }else{
             $('#enviar').addClass('disabled');
+            $('#numero').hide();
             error = false;
             console.log(error);
         }
 
     });
 
+    //Funcion que limita la cantidad de caracteres del selector '#content'
+    var total_letras = 200;
+    $('#content').keyup(function() {
+        var longitud = $(this).val().length;
+        var resto = total_letras - longitud;
+        $('#numero').html(resto).css('color','#E1523D');
+        if(resto <= 0){
+            $('#content').attr("maxlength", 200);
+        }
+    });
+
+    //Funcion que comprueba el boton enviar y si no esta desabilitado, se inserta los datos del comentario en la BBDD y se crear dinamicamente el comentario, al finalizar el efecto fade
     $('#enviar').click(function(){
 
         if(!$(this).hasClass('disabled')){
-        
+            $('#caja').fadeOut('slow', function(){
                 $.ajax({
                     url: "/articulo/comentario/create",
                     method: "POST",
@@ -47,12 +62,14 @@ $(function(){
 
                         $('#comentario').after(divPadre);
                         $('#comentario').after(hr);
-
                         $('#content').val("");
+                        $('#numero').hide();
 
                     },dataType: 'json',
                 });
-      
+            });
+            $('#caja').fadeIn('slow')
         }
+
     });
 });

@@ -42,6 +42,15 @@ class ServiceSeed extends Seeder
                 'name' => 'Asesoramiento personalizado',
             ],
 
+            [
+                'idService' => 7,
+                'name' => 'Tarjeta identificativa VIP',
+            ],
+
+            [
+                'idService' => 8,
+                'name' => '',
+            ],
         ]);
     }
 }

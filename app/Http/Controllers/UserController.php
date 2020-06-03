@@ -54,7 +54,9 @@ class UserController extends Controller
     public function show()
     {
         $user = User::find(Auth::user()->idUser);
-        $adress = Address::where('userId', Auth::User()->idUser)->get()->first();
+        $adress = Address::select()
+            ->where('userId',Auth::user()->idUser)
+            ->get();
 
         return view('perfil')
             ->with('user',$user)
@@ -69,7 +71,14 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $user = User::find($id);
+        $adress = Address::select()
+            ->where('userId',$id)
+            ->get();
 
+        return view('perfil')
+            ->with('user',$user)
+            ->with('address',$adress);
     }
 
     /**
@@ -80,8 +89,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //este método debe recibir un id de usuario cierto????
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         if($request->via != "" && $request->puerta != "" && $request->provincia != "" && $request->localidad != "" && $request->cp != ""){
             $dir =  Address::where('userId', Auth::User()->idUser)->first();
@@ -115,7 +123,7 @@ class UserController extends Controller
             }
         }
 
-        $user = User::find(Auth::User()->idUser);
+        $user = User::find($id);
         $user->name = $request->nombre;
         $user->firts_surname = $request->apellido1;
         $user->second_surname = $request->apellido2;
@@ -140,6 +148,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        unlink('perfil/'.$user->picture);
+        $user->delete();
+        
+        return redirect('/usuarios/admin');
     }
 }

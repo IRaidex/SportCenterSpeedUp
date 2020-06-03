@@ -36,20 +36,33 @@ Route::get('/crearArticulo', function(){
 })->middleware('ambos');
 
 
-Route::get('/inscribete', function(){
-    return view('inscribete');
-});
-
-
-Route::post('/articulo/create','ArticleController@store');
+Route::post('/articulo/create','ArticleController@store')->middleware('ambos');
+Route::get('/articulos/admin','ArticleController@todos')->middleware('admin');
+Route::get('/articulo/deleteAdmin/{id}','ArticleController@destroyAdmin')->middleware('admin');
+Route::get('/articulo/delete/{id}','ArticleController@destroy')->middleware('ambos');
 Route::get('/articulos/all','ArticleController@index');
 Route::get('/articulos/ultimos','ArticleController@ultimos');
 Route::get('/articulo/{id}','ArticleController@show');
-Route::get('/articulo/edit/{id}','ArticleController@edit');
-Route::get('/articulo/update/{id}','ArticleController@update');
-Route::post('/articulo/comentario/create','ComentController@store');
+Route::get('/articulo/edit/{id}','ArticleController@edit')->middleware('ambos');
+Route::post('/articulo/update/{id}','ArticleController@update')->middleware('ambos');
+Route::post('/articulo/comentario/create','ComentController@store')->middleware('login');
 
-Route::get('/usuarios','UserController@index')->middleware('admin');
+Route::get('/usuarios/admin','UserController@index')->middleware('admin');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/perfil/user','UserController@show');
-Route::post('/perfil/edit','UserController@update');
+Route::get('/perfil/user','UserController@show')->middleware('login');
+Route::get('/perfil/edit/{id}','UserController@edit')->middleware('login');
+Route::get('/perfil/delete/{id}','UserController@destroy')->middleware('admin');
+Route::post('/perfil/update/{id}','UserController@update')->middleware('login');
+
+Route::get('/packs/admin','PackController@packs')->middleware('admin');
+Route::get('/pack/all','PackController@index');
+Route::get('/crearPack','ServiceController@index')->middleware('admin');
+Route::post('/pack/create','PackController@store');
+
+Route::get('/inscribete','PackController@selects')->middleware('login');
+Route::get('/card/{id}','CardController@show')->middleware('login');
+Route::post('/card/save','CardController@store')->middleware('login');
+Route::post('/contract','ContractController@store')->middleware('login');
+
+
+

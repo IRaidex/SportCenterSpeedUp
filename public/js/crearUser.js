@@ -2,6 +2,7 @@ $(function(){
 
     $('small').hide();
 
+    //Funcion que comprueba que los datos del formulario son correctos , mediante el evento blur y expresiones regulares
     $('#formRegister :input').blur(function(){
 
         if($(this).attr('name') == 'name'){
@@ -180,6 +181,7 @@ $(function(){
         }
     });
 
+    //Funcion donde evitamos el evento submit, recorremos todos los inputs para confirmar que son correctos y enviamos el formulario
     $('#registro').click(function(event){
         event.preventDefault();
 

@@ -34,6 +34,24 @@ class ArticleController extends Controller
             ->with('articulos',$articulos);
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function todos()
+    {
+        $articulos = Article::all();
+
+        for($i = 0 ; $i<count($articulos) ; $i++){
+            $user = User::find($articulos[$i]->userId);
+            $articulos[$i]->datosUser = $user;
+
+        }   
+
+        return view('/adminArticulos')
+            ->with('articulos',$articulos);
+    }
 
 
     /**
@@ -164,7 +182,21 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->tag1 = $request->tag1;
+        $article->tag2 = $request->tag2;
+        $article->tag3 = $request->tag3;
+
+        if($request->picture != null){
+            $imagen = $request->picture;
+            $imagen->move('articulos','articulo'. $id.'.'.$imagen->getClientOriginalExtension());
+            $article->picture = 'articulo'. $id.'.'.$imagen->getClientOriginalExtension();
+        }
+
+        return $article->save();
     }
 
     /**
@@ -173,8 +205,26 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function destroyAdmin($id)
+    {
+        $article = Article::find($id);
+        unlink('articulos/'.$article->picture);
+        $article->delete();
+
+        return redirect('/articulos/admin');
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        unlink('articulos/'.$article->picture);
+        $article->delete();
+
+        return redirect('/articulos/all');
     }
 }

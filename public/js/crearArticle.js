@@ -4,7 +4,8 @@ $(function(){
     $('#avisoContent').hide();
     $('#avisoTag').hide();
     $('#avisoFile').hide();
-
+    
+     //Funcion que limita la cantidad de caracteres del selector '#articulo' y se muestra una contador con los caracteres que faltan para llegar al limite
     var total_letras = 5000;
     $('#articulo').keyup(function() {
         var longitud = $(this).val().length;
@@ -15,56 +16,63 @@ $(function(){
         }
     });
 
+    //Funcion que comprueba que los datos del formulario son correctos , mediante el evento blur y expresiones regulares
+    $('#formArticle :input').blur(function(){
 
+        if($(this).attr('name') == 'title'){
+            if($(this).val().match( /^[0-9a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]{3,150}$/)){
+                $(this).removeClass('error')
+                $('#avisoTitle').hide();
+            }else{
+                $(this).addClass('error');
+                $('#avisoTitle').show();
+            }
+        }else if($(this).attr('name') == 'content'){
+            if($(this).val().match( /^[0-9a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]{150,5000}$/)){
+                $(this).removeClass('error')
+                $('#avisoContent').hide();
+            }else{
+                $(this).addClass('error');
+                $('#avisoContent').show();
+            }
+        }else if($(this).attr('name') == 'tag1' || $(this).attr('name') == 'tag2' || $(this).attr('name') == 'tag3'){
+            if($(this).val().match( /^[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]{3,15}$/)){
+                $(this).removeClass('error')
+                $('#avisoTag').hide();
+            }else{
+                $(this).addClass('error');
+                $('#avisoTag').show();
+            }
+        }
+
+
+    });
+    
+    //Funcion donde evitamos el evento submit, recorremos todos los inputs para confirmar que son correctos y enviamos el formulario
     $('#crear').click(function(){
 
         $(this).preventDefault;
 
+        var inputs = $('#formArticle :input');
         var error = false;
 
-        var campos = $('#formArticle :input');
+        for(var i=0 ; i<inputs.length ; i++){
+            $(inputs[i]).focus();
+            $(inputs[i]).blur();
 
+            if($(inputs[i]).hasClass('error')){
+                error = true;
+            }
+        }
+        
+        if(error = false){
+             $('#crear').submit();
+        }
+        
         $('#avisoTitle').hide();
         $('#avisoContent').hide();
         $('#avisoTag').hide();
         $('#avisoFile').hide();
-
-        for(var i=0 ; i<campos.length ; i++){
-
-            error = false;
-
-            if(campos[i].type == 'text'){
-                if(campos[i].name == 'title'){
-                    if(campos[i].value == "" || campos[i].value.length > 75 || campos[i].value.length < 5){
-                        $('#avisoTitle').show();
-                        error = true;
-                    }else{
-
-                    }
-                }else if(campos[i].name == 'tag1' || campos[i].name == 'tag2' || campos[i].name == 'tag3'){
-                    if(campos[i].value == "" || campos[i].value.length < 3 || campos[i].value.length > 15){
-                        $('#avisoTag').show();
-                        error = true;
-                    }
-                }
-            }
-        }
-
-        var articulo = $('textarea');
-        if(articulo.val() == "" || articulo.val().length < 5){
-            $('#avisoContent').show();
-            error = true;
-        }
-
-        var file = $('#file');
-        if(file.val() == ""){
-            $('#avisoFile').show();
-            error = true;
-        }
-
-        if(!error){
-            $('#crear').submit();
-        }
 
     });    
 

@@ -1,5 +1,6 @@
 $(function(){
-
+    
+    //Funcion que que recibe un elemento y una cantidad de caracteres, y cuando el elemento llega a esa cantidad de caracteres añade '...' y el texto restante desaparece
     function ellipsis_box(elemento, max_chars){
         limite_text = $(elemento).text();
         if (limite_text.length > max_chars)

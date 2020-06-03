@@ -12,7 +12,16 @@
 @section('content')
 
 <div class="container-fluid">
-    <h3 class="mt-4 text-uppercase font-weight-bold text-center">Perfil</h3>
+    <div class="form-row">
+        <div class="col-1">
+            <a href="/usuarios/admin" class="text-left"><img src="{{asset('img/volver.svg')}}" class="botonVolver mt-3" alt="Botón"></a>
+        </div>
+        <div class="col-11">
+            <h3 class="mt-4 text-uppercase font-weight-bold text-center">Perfil</h3>
+        </div>
+
+    </div>
+
     <hr class="w-75">
     <form action="#" method="post" id="formPerfil" enctype="multipart/form-data">
         @csrf
@@ -62,7 +71,7 @@
                     <div class="col-md-4 col-8 form-group">
                         <label for="via" class="font-weight-bold">Nombre via</label>
                         @if($address != null)
-                        <input type="text" name="via" class="form-control"  id="via" value="{{$address->via}}" disabled>
+                        <input type="text" name="via" class="form-control"  id="via" value="{{$address[0]->via}}" disabled>
                         @else
                         <input type="text" name="via" class="form-control"  id="via" disabled>
                         @endif
@@ -71,7 +80,7 @@
                     <div class="col-md-2 col-4 form-group">
                         <label for="numero" class="font-weight-bold">Numero</label>
                         @if($address != null)
-                        <input type="number" name="numero" class="form-control" value="{{$address->number}}" id="numero" disabled> 
+                        <input type="number" name="numero" class="form-control" value="{{$address[0]->number}}" id="numero" disabled> 
                         @else
                         <input type="number" name="numero" class="form-control"  id="numero" disabled> 
                         @endif
@@ -80,7 +89,7 @@
                     <div class="col-md-2 col-6 form-group">
                         <label for="piso" class="font-weight-bold">Piso</label>
                         @if($address != null)
-                        <input type="number" name="piso" class="form-control" value="{{$address->floor}}" id="piso" disabled> 
+                        <input type="number" name="piso" class="form-control" value="{{$address[0]->floor}}" id="piso" disabled> 
                         @else
                         <input type="number" name="piso" class="form-control"  id="piso" disabled> 
                         @endif
@@ -89,7 +98,7 @@
                     <div class="col-md-2 col-6 form-group">
                         <label for="puerta" class="font-weight-bold">Puerta</label>
                         @if($address != null)
-                        <input type="number" name="puerta" class="form-control" value="{{$address->door}}" id="puerta"  disabled>
+                        <input type="number" name="puerta" class="form-control" value="{{$address[0]->door}}" id="puerta"  disabled>
                         @else
                         <input type="number" name="puerta" class="form-control"  id="puerta"  disabled>
                         @endif
@@ -100,7 +109,7 @@
                     <div class="col-md-4 col-12 form-group">
                         <label for="provincia" class="font-weight-bold">Provincia</label>
                         @if($address != null)
-                        <input type="text" name="provincia" class="form-control" value="{{$address->province}}" id="provincia"  disabled>
+                        <input type="text" name="provincia" class="form-control" value="{{$address[0]->province}}" id="provincia"  disabled>
                         @else
                         <input type="text" name="provincia" class="form-control" id="provincia"  disabled>
                         @endif
@@ -109,7 +118,7 @@
                     <div class="col-md-4 col-12 form-group">
                         <label for="localidad" class="font-weight-bold">Localidad</label>
                         @if($address != null)
-                        <input type="text" name="localidad" class="form-control" value="{{$address->location}}" id="localidad"  disabled>
+                        <input type="text" name="localidad" class="form-control" value="{{$address[0]->location}}" id="localidad"  disabled>
                         @else
                         <input type="text" name="localidad" class="form-control"  id="localidad"  disabled>
                         @endif
@@ -118,7 +127,7 @@
                     <div class="col-md-2 col-6 form-group">
                         <label for="cp" class="font-weight-bold">C.P</label>
                         @if($address != null)
-                        <input type="number" name="cp" class="form-control" value="{{$address->cp}}" id="cp"  disabled>
+                        <input type="number" name="cp" class="form-control" value="{{$address[0]->cp}}" id="cp"  disabled>
                         @else
                         <input type="number" name="cp" class="form-control" id="cp"  disabled>
                         @endif
@@ -132,8 +141,8 @@
                 </div>    
                 <div class="form-group col-md-12 text-center mt-3">
                     <span class="btn btn-info text-right mod">Modificar</span>
-                    <span class="btn btn-success text-right save">Guardar</span>
-                    <span class="btn btn-danger text-right error">Cancelar</span>
+                    <span id="{{$user->idUser}}" class="btn btn-success text-right save">Guardar</span>
+                    <span class="btn btn-danger text-right cancelar">Cancelar</span>
                     <img src="{{asset('img/cambioSave.svg')}}" alt="iconoBien" id="success" class="ml-2 icono">
                     <img src="{{asset('img/cambioError.svg')}}" alt="iconoMal" id="error"class="ml-2 icono">                     
                 </div>    

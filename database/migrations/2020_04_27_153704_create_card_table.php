@@ -15,10 +15,10 @@ class CreateCardTable extends Migration
     {
         Schema::create('card', function (Blueprint $table) {
             $table->bigIncrements('idCard');
-            $table->string('card_owner',100);
+            $table->bigInteger('number_card');
             $table->string('titular',100);
-            $table->integer('cvv');
-            $table->Date('date_caducity');
+            $table->integer('month');
+            $table->integer('year');
             $table->bigInteger('userId')->unsigned();
             $table->timestamps();
         });

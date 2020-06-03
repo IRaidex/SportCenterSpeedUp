@@ -132,7 +132,7 @@ a.scroll-top {
     font-size: 20px;
     border-radius: 3px !important;
     text-align: center;
-   
+
 }
 a.scroll-top i {
     position: relative;
@@ -141,4 +141,54 @@ a.scroll-top i {
 
 .nav-ins{
     color: #E1523D;
+}
+
+.botonVolver{
+    width: 45px;
+    height: 45px;
+}
+
+.modalHeader{
+    background-color: #292A3A;
+    color: #E1523D;
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.btn-leer{
+    border: 1px solid #E1523D;
+    background-color: transparent;
+    color: #E1523D;
+}
+
+.btn-leer:hover{
+    background-color: #E1523D;
+    color: white;
+}
+
+small{
+    color: #E1523D;
+}
+
+.enlace:hover{
+    text-decoration: none;
+    color: #E1523D;
+        
 }

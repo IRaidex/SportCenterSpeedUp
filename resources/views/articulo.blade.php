@@ -14,8 +14,12 @@
     @section('titulo')
     <title>Articulo • {{$articulo[0]->title}}</title>
     @stop
-
-    <div class="row mt-5 mb-4 justify-content-center">
+    <div class="form-row">
+        <div class="col-1">
+            <a href="/articulos/all" class="text-left"><img src="{{asset('img/volver.svg')}}" class="botonVolver mt-3" alt="Botón"></a>
+        </div>
+    </div>
+    <div class="row mb-4 justify-content-center">
         <div class="col-md-3 col-12 text-center">
             <a href=""><img src="{{asset('articulos/'.$articulo[0]->picture)}}" alt="imagenArticulo" class="img-fluid"></a>
             <p class="text-center my-3">{{$valor->name}} {{$valor->firts_surname}} {{$valor->second_surname}}</p>
@@ -48,6 +52,7 @@
                     @csrf
                     <div class="form-group ">
                         <textarea class="form-control w-75" id="content" name="content" maxlength="200" cols="80" rows="4" placeholder="Escriba su comentario..."></textarea>
+                        <span id="numero"></span>
                         <input id="articleId" type="hidden" class="form-control" name="articleId" value="{{$articulo[0]->idArticle}}" required autocomplete="articleId">
                     </div>
                     <div class="form-group"><span id="enviar" class="btn text-center disabled">Enviar</span></div>

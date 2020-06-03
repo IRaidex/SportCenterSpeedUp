@@ -1,14 +1,13 @@
 $(function(){
 
-    $('.error').hide();
+    $('.cancelar').hide();
     $('.save').hide();
     $('.icono').hide();
     $('small').hide();
 
-    var error = false;
-
+    //Funcion que al hacer click en el boton modificar, se guardan los datos de los inputs en el localStorage y se habilitan los inputs
     $('.mod').click(function(){
-        $('.error').show('low');
+        $('.cancelar').show('low');
         $('.save').show('low');
         $(this).hide('low');
         var inputs = $('#formPerfil :input').removeAttr('disabled');
@@ -19,9 +18,8 @@ $(function(){
 
     });
 
+    //Funcion que comprueba que los datos del formulario son correctos mediante el evento blur y expresiones regulares
     $('#formPerfil :input').blur(function(){
-
-        error = false;
 
         if($(this).val() != localStorage.getItem($(this).attr('name'))){
             if($(this).attr('name') == 'nombre'){
@@ -157,23 +155,49 @@ $(function(){
         }
     });
 
-    $('.error').click(function(){
-        location.reload();
-    });
+    //Funcion que al hacer click en el boton cancelar se deshabiltian los inputs y se eliminan los valores del locoalStorage
+    $('.cancelar').click(function(){
+        $('.cancelar').hide('low');
+        $('.save').hide('low');
+        $('.mod').show('low');
+        $('small').hide();
+        $('#numero').hide('low');
+        $('#formPerfil')[0].reset();
+        var inputs = $('#formPerfil :input').attr('disabled','disabled');
 
+
+        for(var i=0 ; i<inputs.length ; i++){
+            localStorage.removeItem($(inputs[i]).attr('name'));
+        }
+    });
+    
+      //Funcion que recorremos todos los inputs para confirmar que son correctos, enviamos el formulario mediante una peticion ajax y al terminar borramos los datos del localStorage
     $('.save').click(function(){
+
+        var inputs = $('#formPerfil :input');
+        var error = false;
+
+        for(var i=0 ; i<inputs.length ; i++){
+            $(inputs[i]).focus();
+            $(inputs[i]).blur();
+
+            if($(inputs[i]).hasClass('error')){
+                error = true;
+            }
+        }
 
         if(error == false){
 
+            var id = $('.save').attr('id');
             var data = $('#formPerfil').serialize();
             data = new FormData($('#formPerfil')[0]);       
 
             $.ajax({
-                url: "/perfil/edit",
+                url: "/perfil/update/"+id,
                 processData: false,
                 contentType: false,
                 type: "POST",
-                data: data,
+                data: data ,
                 success: function(data){
                     console.log(data);
                     if(data == 1){
@@ -181,11 +205,14 @@ $(function(){
                     }else{
                         $('#error').show();
                     }
-                    $('.error').hide('low');
+                    $('.cancelar').hide('low');
                     $('.save').hide('low');
                     $('.mod').show('low');
-                    $('#formPerfil :input').attr('disabled','disabled');
-
+                    var inputs = $('#formPerfil :input').attr('disabled','disabled');
+                    
+                    for(var i=0 ; i<inputs.length ; i++){
+                        localStorage.removeItem($(inputs[i]).attr('name'));
+                    }
                 }
             });   
         }

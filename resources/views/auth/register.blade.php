@@ -104,7 +104,7 @@
                         <button type="submit" class="btn btn btn-warning mr-5" id="registro">
                             {{ __('Registrarse') }}
                         </button>
-                        <a class="text-right btn btn-link" href="/">
+                        <a class="text-right btn btn-link" href="" data-toggle="modal" data-target="#login">
                             {{ __('¿Ya tienes una cuenta?') }}
                         </a>
                     </div>

@@ -12,7 +12,14 @@
 @section('content')
 
 <div class="container-fluid">
-    <h3 class="text-center my-4 text-uppercase font-weight-bold">Nuevo Articulo</h3>
+    <div class="form-row">
+        <div class="col-1">
+            <a href="javascript:history.back()" class="text-left"><img src="{{asset('img/volver.svg')}}" class="botonVolver mt-3" alt="Botón"></a>
+        </div>
+        <div class="col-11">
+            <h3 class="text-center my-4 text-uppercase font-weight-bold"><span class="colorAzul">Nuevo</span> Artículo</h3>
+        </div>
+    </div>
     <hr class="w-50">
     <div class="row justify-content-center mt-5">
         <div class="col-md-6 col-12">
@@ -26,7 +33,7 @@
                 <div class="form-group">
                     <textarea class="form-control" maxlength="5000" id="articulo" rows="10" name="content" placeholder="Escriba Articulo..." required></textarea>
                     <label for="caracteres" id="numero"></label>
-                    <small id="avisoContent" >El articulo tiene que tener entre 5 y 5000 caracteres.</small>
+                    <small id="avisoContent" >El articulo tiene que tener entre 150 y 5000 caracteres.</small>
                 </div> 
                 <div class="form-row m-0">
                     <div class="col-md-4 form-group">
